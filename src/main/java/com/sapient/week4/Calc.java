@@ -46,6 +46,7 @@ public class Calc
         System.out.println("For multiplication: enter multiply.");
         System.out.println("For division: enter divide.");
 
+        System.out.println("Enter choice:");
         String op = Reader.in.nextLine();
         Num_Process opObj = (Num_Process) Calc.class.getMethod(op).invoke(ob);
         System.out.println("Answer: " + ob.executeOp(a, b, opObj));
