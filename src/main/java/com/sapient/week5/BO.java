@@ -1,6 +1,7 @@
 package com.sapient.week5;
 
 import java.util.Collections;
+import java.util.NoSuchElementException;
 
 public class BO {
 	public void read() {
@@ -27,9 +28,8 @@ public class BO {
 				return;
 			}
 		}
-		System.out.println("Unable to locate student with id: " + id);
-		return;
-		// throw new ObjectNotFoundException("Unable to locate student with id: " + id);
+		
+		throw new NoSuchElementException("Unable to locate student with id: " + id);
 	}
 
 	public void display() {

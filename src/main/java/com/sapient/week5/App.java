@@ -7,7 +7,7 @@ public class App {
 		bo.read();
 		bo.read();
 		bo.read();
-		bo.display();
+		bo.display(5);
 		bo.displaySorted(false);
 	}
 }
