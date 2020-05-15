@@ -2,6 +2,13 @@ table {
   /* overflow-x: auto; */
   height: 80%;
   width: 50%;
+  background-color: aquamarine;
+  border: 1px solid black;
+  margin-left: 1%;
+}
+
+th, td {
+  text-align: center;
 }
 
 form {
@@ -39,6 +46,7 @@ button {
 
 .calculator {
   padding-left: 1%;
+  margin-left: 1%;
 }
 
 body {
