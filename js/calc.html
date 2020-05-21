@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <input type="text" id="op1"><br>
+        <input type="text" id="op2"><br>
+
+        <input name="operator" type="radio" id="add" value="add">
+        <label for="add">Add</label><br>
+
+        <input name="operator" type="radio" id="sub" value="sub">
+        <label for="sub">Subtract</label><br>
+
+        <input name="operator" type="radio" id="mul" value="mul">
+        <label for="mul">Multiply</label><br>
+
+        <input name="operator" type="radio" id="div" value="div">
+        <label for="div">Divide</label><br>
+        
+        <button type="button" id="go" onclick="calculate()">Go!</button><br>
+
+        <div id="result">
+
+        </div>
+
+        <script>
+            function calculate() {
+                if (document.getElementById('op1').value == "")
+                    return
+                if (document.getElementById('op2').value == "")
+                    return
+                
+                var a = parseInt(document.getElementById('op1').value)
+                var b = parseInt(document.getElementById('op2').value)
+
+                var result = 0;
+                if (document.getElementById("add").checked)
+                    result = a + b
+                else if (document.getElementById("sub").checked)
+                    result = a - b
+                else if (document.getElementById("mul").checked)
+                    result = a * b
+                else
+                    result = a / b
+
+                document.getElementById('result').innerHTML = 'Result: ' + result
+            }
+        </script>
+        <link rel="stylesheet" href="styles.css">
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <input type="text", id="name"><br>
+        <button type="button" id="search" onclick="display()">Search</button>
+        
+        <div id="displayData">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Data</th>
+                </tr>
+
+                <tr>
+                    <td id="empName"></td>
+                    <td id="empData"></td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            var data = [
+                {
+                    "name": "name1",
+                    "data": "data1"
+                },
+
+                {
+                    "name": "name2",
+                    "data": "data2"
+                }
+            ]
+
+            function display() {
+                var empName = document.getElementById("name").value;
+                if (empName == "")
+                    return
+                
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].name == empName) {
+                        document.getElementById("empName").innerHTML = data[i].name
+                        document.getElementById("empData").innerHTML = data[i].data
+                        return
+                    }
+                }
+
+                alert('Employee not found!')
+            }
+        </script>
+        <link rel="stylesheet" href="styles.css">
+    </body>
+</html>
