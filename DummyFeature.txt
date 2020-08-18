@@ -1,2 +1,3 @@
 feature 1
-feature 2
+feature 4 // updated from feature 2 to feature 4
+feature 3 // newly added
