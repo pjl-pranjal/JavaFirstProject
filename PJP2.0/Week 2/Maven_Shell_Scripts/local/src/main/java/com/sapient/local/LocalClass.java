@@ -1,4 +1,4 @@
-package com.sapient.local;
+package main.java.com.sapient.local;
 
 public class LocalClass 
 {
