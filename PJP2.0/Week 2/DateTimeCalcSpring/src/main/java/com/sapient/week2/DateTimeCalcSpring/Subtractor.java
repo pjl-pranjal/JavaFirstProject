@@ -25,7 +25,10 @@ public class Subtractor {
         else if (unitType == 3)
             newDate.setDate(date.getDate().minusYears(valueToSubtract));
         
-        // else throw new Exception("Invalid temporal unit for operation. Allowed: days(0), weeks(1), months(2) and years(3) only.");
+        else {
+        	System.out.println("Unit Types: Day (0), Week (1), Month (2), Year(3)");
+        	return date;
+        }
         return newDate;
     }
 
