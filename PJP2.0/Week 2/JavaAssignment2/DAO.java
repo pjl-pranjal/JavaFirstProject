@@ -10,18 +10,18 @@ public class DAO {
     private GeneralReader reader;
     private DateTimeFormatter dateFormat;
 
+    public DAO() {
+        this.reader = new GeneralReader();
+        this.transactions = new ArrayList<Transaction>();
+        this.dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    }
+
     public ArrayList<Transaction> getTransactions() {
         return this.transactions;
     }
 
     public void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
-    }
-
-    public DAO() {
-        this.reader = new GeneralReader();
-        this.transactions = new ArrayList<Transaction>();
-        this.dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
     }
 
     public void getReport(String fileName) throws Exception {
