@@ -1,13 +1,15 @@
+package com.sapient.week2;
+
 public class App {
     public static void main(String[] args) {
         try {
             DAO dao = new DAO();
-            dao.readData(args[0], args[0].substring(args[0].length() - 3));
+            dao.readData("transactions.csv", "csv");
 
             BO bo = new BO();
-            bo.processIncomes(dao.getIncomes());
+            bo.processFees(dao.getTransactions());
 
-            dao.getReport(args[1]);
+            dao.getReport("feeReport.csv");
         } catch (Exception e) {
             System.out.println(e);
         }
