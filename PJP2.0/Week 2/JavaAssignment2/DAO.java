@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Collections;
+
+public class DAO {
+    private ArrayList<Transaction> transactions;
+    private GeneralReader reader;
+    private DateTimeFormatter dateFormat;
+
+    public ArrayList<Transaction> getTransactions() {
+        return this.transactions;
+    }
+
+    public void setTransactions(ArrayList<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public DAO() {
+        this.reader = new GeneralReader();
+        this.transactions = new ArrayList<Transaction>();
+        this.dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    }
+
+    public void getReport(String fileName) throws Exception {
+        Collections.sort(this.transactions, new CustomComp());
+        
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        for (Transaction t : this.transactions) {
+            String record = t.getClientID() + ","+ t.getType() + ","+ t.getDate().format(this.dateFormat);
+            if (t.isPriority()) record += ",Y,";
+            else record += ",N,";
+            record += Integer.toString(t.getFee()) + "\n";
+            writer.write(record);
+        }
+        writer.close();
+    }
+
+    public void readData(String filePath, String fileType) throws Exception {
+        ArrayList<String[]> records = new ArrayList<String[]>();
+        if (fileType.toLowerCase().equals("csv")) {
+            records = this.reader.readCSV(filePath);
+        }
+
+        this.transactions = new ArrayList<Transaction>();
+        for (String[] record : records) {
+            Transaction newTransaction = new Transaction();
+            newTransaction.setID(record[0]);
+            newTransaction.setClientID(record[1]);
+            newTransaction.setSecurityID(record[2].toUpperCase());
+            newTransaction.setType(record[3].toUpperCase());
+            newTransaction.setDate(LocalDate.parse(record[4], this.dateFormat));
+            newTransaction.setValue(Integer.parseInt(record[5]));
+            newTransaction.setPriority(false);
+            if (record[6].equals("Y"))
+                newTransaction.setPriority(true);
+            this.transactions.add(newTransaction);
+        }
+    }
+}
