@@ -8,9 +8,9 @@ public class Transaction {
     private String securityID;
     private String type;
     private LocalDate date;
-    private Integer value;
+    private Double value;
     private Boolean priority;
-    private Integer fee;
+    private Double fee;
 
     public Boolean isPriority() {
         return this.priority;
@@ -24,11 +24,11 @@ public class Transaction {
         this.priority = priority;
     }
 
-    public Integer getFee() {
+    public Double getFee() {
         return this.fee;
     }
 
-    public void setFee(Integer fee) {
+    public void setFee(Double fee) {
         this.fee = fee;
     }
 
@@ -72,11 +72,11 @@ public class Transaction {
         this.date = date;
     }
 
-    public Integer getValue() {
+    public Double getValue() {
         return this.value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 }

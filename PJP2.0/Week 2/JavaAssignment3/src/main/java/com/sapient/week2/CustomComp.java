@@ -1,3 +1,5 @@
+package com.sapient.week2;
+
 import java.util.Comparator;
 
 public class CustomComp implements Comparator<Income> {

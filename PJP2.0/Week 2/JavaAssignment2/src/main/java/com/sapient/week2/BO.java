@@ -5,16 +5,16 @@ import java.util.ArrayList;
 
 public class BO {
     private HashMap<String, Transaction> history;
-    private HashMap<String, Integer> charges;
+    private HashMap<String, Double> charges;
     
     public BO() {
         this.history = new HashMap<String, Transaction>();
 
-        this.charges = new HashMap<String, Integer>();
-        this.charges.put("HighPriority", 500);
-        this.charges.put("SellWithdraw", 100);
-        this.charges.put("BuyDeposit", 50);
-        this.charges.put("IntraDay", 10);
+        this.charges = new HashMap<String, Double>();
+        this.charges.put("HighPriority", 500.0);
+        this.charges.put("SellWithdraw", 100.0);
+        this.charges.put("BuyDeposit", 50.0);
+        this.charges.put("IntraDay", 10.0);
     }
 
     public void processFees(ArrayList<Transaction> transactions) {

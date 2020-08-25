@@ -1,3 +1,5 @@
+package com.sapient.week2;
+
 import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -34,11 +36,13 @@ public class DAO {
         writer.close();
     }
 
-    public void readData(String filePath, String fileType) throws Exception {
+    public void readData(String filePath, String fileType, Boolean headerIncluded) throws Exception {
         ArrayList<String[]> records = new ArrayList<String[]>();
         if (fileType.toLowerCase().equals("csv")) {
             records = this.reader.readCSV(filePath);
         }
+
+        if (headerIncluded) records.remove(0);
 
         this.incomes = new ArrayList<Income>();
         for (String[] record : records) {

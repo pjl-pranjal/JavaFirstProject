@@ -1,3 +1,5 @@
+package com.sapient.week2;
+
 public class Income {
     private String city;
     private String country;
