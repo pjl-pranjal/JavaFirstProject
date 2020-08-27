@@ -17,6 +17,7 @@ public class CalcOperation {
 	private String phrase;
 	private String output;
 	private String value;
+	private String unitType;
 	private String input1;
 	
 	public String getType() {
@@ -49,6 +50,12 @@ public class CalcOperation {
 	public void setValue(String value) {
 		this.value = value;
 	}
+	public String getUnitType() {
+		return unitType;
+	}
+	public void setUnitType(String unitType) {
+		this.unitType = unitType;
+	}
 	public String getInput1() {
 		return input1;
 	}
@@ -58,24 +65,25 @@ public class CalcOperation {
 	
 	public String toCSV() {
 		String csv = "";
-		csv += Long.toString(this.id) + "," + this.type + "," + this.input + "," + this.phrase + "," + this.output + "," + this.value + "," + this.input1;
+		csv += Long.toString(this.id) + "," + this.type + "," + this.input + "," + this.phrase + "," + this.output + "," + this.value + "," + this.unitType + "," + this.input1;
 		return csv;
 	}
-	
 	@Override
 	public String toString() {
-		return "CalcOperation [type=" + type + ", input=" + input + ", phrase=" + phrase + ", output=" + output
-				+ ", value=" + value + ", input1=" + input1 + "]";
+		return "CalcOperation [id=" + id + ", type=" + type + ", input=" + input + ", phrase=" + phrase + ", output="
+				+ output + ", value=" + value + ", unitType=" + unitType + ", input1=" + input1 + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((input == null) ? 0 : input.hashCode());
 		result = prime * result + ((input1 == null) ? 0 : input1.hashCode());
 		result = prime * result + ((output == null) ? 0 : output.hashCode());
 		result = prime * result + ((phrase == null) ? 0 : phrase.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((unitType == null) ? 0 : unitType.hashCode());
 		result = prime * result + ((value == null) ? 0 : value.hashCode());
 		return result;
 	}
@@ -88,6 +96,8 @@ public class CalcOperation {
 		if (getClass() != obj.getClass())
 			return false;
 		CalcOperation other = (CalcOperation) obj;
+		if (id != other.id)
+			return false;
 		if (input == null) {
 			if (other.input != null)
 				return false;
@@ -113,6 +123,11 @@ public class CalcOperation {
 				return false;
 		} else if (!type.equals(other.type))
 			return false;
+		if (unitType == null) {
+			if (other.unitType != null)
+				return false;
+		} else if (!unitType.equals(other.unitType))
+			return false;
 		if (value == null) {
 			if (other.value != null)
 				return false;
@@ -120,5 +135,4 @@ public class CalcOperation {
 			return false;
 		return true;
 	}
-	
 }

@@ -71,6 +71,7 @@ public class DateTimeCalculator {
         record.put("type", "add");
         record.put("input", this.inputDate.toString());
         record.put("value", Integer.toString(valueToAdd));
+        record.put("unitType", Integer.toString(unitType));
 
         if (unitType <= 3 && unitType >= 0)
             this.inputDate = this.adder.addByUnit(this.inputDate, valueToAdd, unitType);
@@ -90,6 +91,7 @@ public class DateTimeCalculator {
         record.put("type", "subtract");
         record.put("input", this.inputDate.toString());
         record.put("value", Integer.toString(valueToSubtract));
+        record.put("unitType", Integer.toString(unitType));
 
         if (unitType <= 3 && unitType >= 0)
             this.inputDate = this.subtractor.subtractByUnit(this.inputDate, valueToSubtract, unitType);

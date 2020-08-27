@@ -1,0 +1,9 @@
+{output=1, input={ date='2020-01-01'}, type=week-num}
+{output=Wednesday, input={ date='2020-01-01'}, type=day-name}
+{output=P7M27D, input2={ date='2020-08-28'}, input1={ date='2020-01-01'}, type=subtract-duration}
+{unitType=0, output={ date='2020-01-01'}, input={ date='2019-12-31'}, type=add, value=1}
+{unitType=2, output={ date='2019-12-31'}, input={ date='2020-01-31'}, type=subtract, value=1}
+{output={ date='2020-07-28'}, input={ date='2020-08-29'}, phrase=last month, type=nl}
+{output={ date='2020-08-29'}, input={ date='2020-08-28'}, phrase=tomorrow, type=nl}
+{output={ date='2020-08-28'}, input={ date='2021-08-28'}, phrase=today, type=nl}
+{output={ date='2021-08-28'}, input={ date='2020-08-28'}, phrase=1 year from now, type=nl}

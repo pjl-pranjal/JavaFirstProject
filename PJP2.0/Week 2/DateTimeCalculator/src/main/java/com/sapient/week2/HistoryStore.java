@@ -35,7 +35,7 @@ public class HistoryStore {
             if (i >= this.history.size()) break;
 
             if (writeToFile) {
-            	content += this.history.get(i).toString();
+            	content += this.history.get(i).toString() + "\n";
 //                content += String.join(",", this.history.get(i).values()) + '\n';
             }
             else
