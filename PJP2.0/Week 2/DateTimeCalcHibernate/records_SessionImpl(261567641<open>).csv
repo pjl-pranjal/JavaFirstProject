@@ -1,0 +1,9 @@
+1,nl,{ date='2020-08-28'},1 year from now,{ date='2021-08-28'},null,null
+2,nl,{ date='2021-08-28'},today,{ date='2020-08-28'},null,null
+3,nl,{ date='2020-08-28'},tomorrow,{ date='2020-08-29'},null,null
+4,nl,{ date='2020-08-29'},last month,{ date='2020-07-28'},null,null
+5,subtract,{ date='2020-01-31'},null,{ date='2019-12-31'},1,null
+6,add,{ date='2019-12-31'},null,{ date='2020-01-01'},1,null
+7,subtract-duration,{ date='2020-01-01'},null,P7M27D,null,{ date='2020-08-28'}
+8,day-name,{ date='2020-01-01'},null,Wednesday,null,null
+9,week-num,{ date='2020-01-01'},null,1,null,null

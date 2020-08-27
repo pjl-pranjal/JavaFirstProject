@@ -12,10 +12,14 @@ public class HistoryStore {
     // each calculation stored as a hashmap
     private ArrayList<HashMap<String, String>> history;
     private Integer capacity;
+    private Timestamp timestamp;
 
     public HistoryStore() {
         this.history = new ArrayList<HashMap<String, String>>();
         this.capacity = 100;
+
+        // timestamp for a session
+        this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
     public void addRecord(HashMap<String, String> calc) {
@@ -30,8 +34,10 @@ public class HistoryStore {
         for (int i = 0; i < Math.min(this.capacity, numRecordsToShow); i++) {
             if (i >= this.history.size()) break;
 
-            if (writeToFile)
-                content += this.history.get(i).toString() + '\n';
+            if (writeToFile) {
+            	content += this.history.get(i).toString();
+//                content += String.join(",", this.history.get(i).values()) + '\n';
+            }
             else
                 System.out.println(this.history.get(i));
         }
@@ -41,8 +47,7 @@ public class HistoryStore {
             System.out.println("Enter a path to store history file at:");
             String path = scan.nextLine();
 
-            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-            File file = new File(path + "/records" + "_" + timestamp +".txt");
+            File file = new File(path + "/records" + "_" + this.timestamp +".txt");
             file.createNewFile();
 
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
