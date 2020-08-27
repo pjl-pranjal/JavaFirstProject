@@ -17,6 +17,6 @@ public class App {
         dtc.getDayName();
         dtc.getWeekOfMonth();
 
-        dtc.showNRecentRecords(102, true);
+        dtc.showNRecentRecords(102, false);
     }
 }
