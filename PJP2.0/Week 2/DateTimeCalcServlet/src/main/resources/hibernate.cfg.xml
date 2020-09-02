@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/pranjalverma</property>
+        <property name="hibernate.connection.username">pranjalverma</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL92Dialect</property>
+
+        <!-- Print executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Annotated entity classes -->
+        <!-- <property name="hibernate.archive.autodetection">class, hbm</property> -->
+        <!-- <mapping class="com.sapient.week2.CalcOperation"/> -->
+        
+        <!-- <property name="hibernate.physical_naming_strategy">com.sapient.week2.CustomPhysicalNamingStrategy</property>  -->
+        
+        
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        
+    </session-factory>
+</hibernate-configuration>
