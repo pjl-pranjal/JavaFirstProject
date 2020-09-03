@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      
+      <form id="subtractor" onsubmit="return subtract()">
+         Input date (yyyy-MM-dd): <input type = "text" id = "input_date" />
+         <br />
+         Value to subtract: <input type = "text" id = "value_to_subtract" />
+         <br />
+         Subtract to:<input type="radio" id = "day" name="unit_type" value="0">
+				<label for="day">Day</label>
+				<input type="radio" id = "week" name="unit_type" value="1">
+				<label for="week">Week</label>
+				<input type="radio" id = "month" name="unit_type" value="2">
+				<label for="month">Month</label>
+				<input type="radio" id = "year" name="unit_type" value="3">
+				<label for="year">Year</label>
+		 <br />
+         <input type = "submit" value = "Submit" />
+      </form>
+      
+      Result: <div id = "result"></div>
+
+      <script type="text/javascript" src="dateTimeCalcES6.js"></script>
+      <script>
+        let form = document.getElementById("subtractor");
+        function handleForm(event) { event.preventDefault(); } 
+        form.addEventListener('submit', handleForm);
+
+        function subtract() {
+            let currentDate;
+            let timestamp = Date.parse(document.getElementById("input_date").value);
+            if (isNaN(timestamp) == false) {
+                currentDate = new Date(timestamp);
+            }
+            
+            let finalDate;
+            let val = parseInt(document.getElementById("value_to_subtract").value);
+            if (document.getElementById("day").checked) {
+                finalDate = currentDate.subtractDays(val);
+            }
+            else if (document.getElementById("week").checked) {
+                finalDate = currentDate.subtractWeeks(val);
+            }
+            else if (document.getElementById("month").checked) {
+                finalDate = currentDate.subtractMonth(val);
+            }
+            else if (document.getElementById("year").checked) {
+                finalDate = currentDate.subtractFullYear(val);
+            }
+            document.getElementById("result").innerHTML = finalDate;
+        }
+    </script>
+   </body>
+</html>
